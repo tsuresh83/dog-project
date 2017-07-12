@@ -16332,7 +16332,8 @@ dhYZGRlTITuLjIyMqZCdRUZGxlTIziIjI2MqZGeRkZExFbKzyMjImArZWWRkZEyF/wERhZeQmmJW
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 
+I experimented with various depths and widths (number of filters per layer) and finalized this network with the best performance. While going deeper certainly provided better performance, going wider at the same time increased the number of parameters and slowed down training rate. I tried 'tanh' and 'relu' activation functions and chose 'relu' as it gave the better performance. I intended to try batch normalization and model ensembling, but couldn't do for lack of time.</p>
 
 </div>
 </div>
@@ -17064,7 +17065,8 @@ test_{network} = bottleneck_features['test']</code></pre>
 
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 
+I added a GlobalAveragePooling layer followed by a Dense layer to arrive at the final model. I replaced the GAP layer with another dense later, but that made the performance much worse (not sure why). I tried a dense layer between the GAP and final softmax layers, but that did not provide an increase in performance, but slowed down the training rate.</p>
 
 </div>
 </div>
@@ -17510,7 +17512,7 @@ Epoch 50/50
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## TODO: Execute your algorithm from Step 6 on</span>
@@ -17522,7 +17524,7 @@ Epoch 50/50
 <span class="n">detector</span><span class="p">(</span><span class="s2">&quot;dogImages/train/001.Affenpinscher/Affenpinscher_00018.jpg&quot;</span><span class="p">)</span>
 <span class="n">detector</span><span class="p">(</span><span class="s2">&quot;dogImages/train/014.Basenji/Basenji_00956.jpg&quot;</span><span class="p">)</span>
 <span class="n">detector</span><span class="p">(</span><span class="s2">&quot;dogImages/test/014.Basenji/Basenji_01009.jpg&quot;</span><span class="p">)</span>
-<span class="n">detector</span><span class="p">(</span><span class="s2">&quot;lfw/Aaron_Patterson/Aaron_Patterson_0001.jpg&quot;</span><span class="p">)</span>
+<span class="n">detector</span><span class="p">(</span><span class="s2">&quot;lfw/Adelina_Avila/Adelina_Avila_0001.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -17545,7 +17547,7 @@ The dog breed is Afghan_hound
 The dog breed is Affenpinscher
 The dog breed is Basenji
 The dog breed is Basenji
-Sorry, no face detected
+The dog breed most resembling the human face is Havanese
 </pre>
 </div>
 </div>
